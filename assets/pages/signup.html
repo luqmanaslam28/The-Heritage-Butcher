@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THB-REGISTER</title>
+    <!-------------------------------------- bootstraplink ------------------------------->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <!-------------------------------------- bootstraplink ------------------------------->
+
+    <!-- favicon link -->
+    <link rel="shortcut icon"
+        href="https://static.vecteezy.com/system/resources/previews/025/734/855/non_2x/knife-icon-vector.jpg"
+        type="image/x-icon">
+    <!-- favicon link -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <!----------------------------------------- font awesome ----------------------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!----------------------------------------- font awesome ----------------------------------------->
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <!-- sweet alert -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 30px;
+            background-image: url(../IMAGES/4006.jpg);
+            object-fit: cover;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* REGISTER  */
+        .container {
+            position: relative;
+            max-width: 1900px;
+            width: 90%;
+            background: white;
+            padding-top: 150px;
+            perspective: 2700px;
+            height: 700px;
+            border: 3px solid #000000;
+            border-radius: 0px;
+            background-color: #000000;
+        }
+
+        .container .cover {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 100%;
+            width: 50%;
+            z-index: 98;
+            transition: all 1s ease;
+            transform-origin: left;
+            transform-style: preserve-3d;
+        }
+
+        .container #flip:checked~.cover {
+            transform: rotateY(-180deg);
+        }
+
+        .container .cover .front,
+        .container .cover .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .cover .back {
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+        }
+
+        .cover .front {
+            /* transform: rotateY(180deg); */
+            backface-visibility: hidden;
+        }
+
+        .container .cover::before,
+        .container .cover::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            /* background: #f2d4d6; */
+            opacity: 0.5;
+            z-index: 12;
+        }
+
+        .container .cover::after {
+            opacity: 0.3;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+        }
+
+        .container .cover img {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            z-index: 10;
+            /* filter: brightness(0.4); */
+        }
+
+        .container .cover .text {
+            position: absolute;
+            z-index: 130;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* justify-content: center; */
+            margin-top: 50px;
+        }
+
+        .cover .text .text-1,
+        .cover .text .text-2 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #ffffff !important;
+            text-align: center;
+            z-index: 100px !important;
+        }
+
+        .cover .text .text-2 {
+            font-size: 15px;
+            font-weight: 500;
+            z-index: 200px !important;
+        }
+
+        .back_text {
+            font-size: 26px;
+            font-weight: 600;
+            color: #ffffff !important;
+            text-align: center;
+            z-index: 100px !important;
+        }
+
+        .container .forms {
+            height: 100%;
+            width: 100%;
+            background: black;
+        }
+
+        .container .form-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form-content .login-form,
+        .form-content .signup-form {
+            width: calc(100% / 2 - 25px);
+        }
+
+        .forms .form-content .title {
+            position: relative;
+            font-size: 24px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .forms .form-content .title:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 25px;
+        }
+
+        .forms .signup-form .title:before {
+            width: 20px;
+        }
+
+        .forms .form-content .input-boxes {
+            margin-top: 30px;
+        }
+
+        .forms .form-content .input-box {
+            display: flex;
+            align-items: center;
+            height: 50px;
+            width: 100%;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .form-content .input-box input {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            border: none;
+            padding: 0 30px;
+            font-size: 16px;
+            font-weight: 500;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .form-content .input-box input:focus,
+        .form-content .input-box input:valid {
+            border-color: red;
+        }
+
+        .form-content .input-box i {
+            position: absolute;
+            color: red;
+            font-size: 17px;
+        }
+
+        .forms .form-content .text {
+            font-size: 14px;
+            font-weight: 500;
+            color: red;
+        }
+
+        .forms .form-content .text a {
+            text-decoration: none;
+        }
+
+        .forms .form-content .text a:hover {
+            text-decoration: underline;
+        }
+
+        .forms .form-content .button {
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        .forms .form-content .button input {
+            color: rgb(255, 255, 255) !important;
+            font-weight: 600;
+            background: red;
+            border-radius: 6px;
+            border: 1px solid red;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .forms .form-content label {
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+        }
+
+        .forms .form-content label:hover {
+            text-decoration: underline;
+        }
+
+        .forms .form-content .login-text,
+        .forms .form-content .sign-up-text {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .container #flip {
+            display: none;
+        }
+
+        /* REGISTER */
+
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            color: #ccc;
+        }
+
+        /* MEDIA QUERIES */
+        @media (max-width: 730px) {
+            .container {
+                height: 650px;
+            }
+
+            .container .cover {
+                display: none;
+            }
+
+            .form-content .login-form,
+            .form-content .signup-form {
+                width: 100%;
+            }
+
+            .form-content .signup-form {
+                display: none;
+            }
+
+            .container #flip:checked~.forms .signup-form {
+                display: block;
+            }
+
+            .container #flip:checked~.forms .login-form {
+                display: none;
+            }
+        }
+
+        #error {
+            display: none;
+            color: rgb(255, 0, 0);
+        }
+
+        /* MEDIA QUERIES */
+        @media (max-width: 853px) {
+            .container .cover {
+                display: none;
+            }
+
+            .form-content .login-form,
+            .form-content .signup-form {
+                width: 100%;
+            }
+
+            .form-content .signup-form {
+                display: none;
+            }
+
+            .container #flip:checked~.forms .signup-form {
+                display: block;
+            }
+
+            .container #flip:checked~.forms .login-form {
+                display: none;
+            }
+        }
+
+        #error {
+            display: none;
+            color: rgb(255, 0, 0);
+        }
+
+        @media (max-width: 1024px) {
+            .container .cover {
+                display: none;
+            }
+
+            .form-content .login-form,
+            .form-content .signup-form {
+                width: 100%;
+            }
+
+            .form-content .signup-form {
+                display: none;
+            }
+
+            .container #flip:checked~.forms .signup-form {
+                display: block;
+            }
+
+            .container #flip:checked~.forms .login-form {
+                display: none;
+            }
+        }
+
+        #error {
+            display: none;
+            color: rgb(255, 0, 0);
+        }
+
+        @media (max-width: 730px) {
+            input {
+                font-size: small !important;
+            }
+        }
+
+        /* MEDIA QUERIES */
+    </style>
+</head>
+<body>
+
+    <a href="../../index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    <!-- REGISTER -->
+    <div class="container">
+        <input type="checkbox" id="flip">
+        <div class="cover">
+            <div class="front">
+                <img src="../IMAGES/specialise banner.png" alt=""
+                    style="object-fit: cover;background-size: cover;background-position: center;">
+                <div class="text">
+                    <span class="text-1"><br></span>
+                </div>
+            </div>
+            <div class="back">
+                <img class="backImg" src="../IMAGES/banner2.png" alt=""
+                    style="object-fit: cover;background-size: cover;background-position: center;">
+                <div class="text">
+                    <span class="text-1"><br></span>
+                </div>
+            </div>
+        </div>
+        <div class="forms">
+            <div class="form-content">
+                <div class="login-form mb-5 text-center">
+                    <div class="title" style="color: red;"><h1>LOGIN</h1></div>
+                    <form action="#">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-envelope" style="padding-left: 5px;"></i>
+                                <input type="email" id="email" class="input" placeholder="Enter your email"
+                                    style="background-color: black;border: 1px solid rgb(255, 255, 255); color: #ffffff;">
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock" style="padding-left: 5px;"></i>
+                                <input type="password" id="password" class="input" placeholder="Enter your password"
+                                    style="background-color: black;border: 1px solid rgb(255, 255, 255); color: #ffffff;">
+                            </div>
+                            <div class="text"><a href="#" style="color: red;">Forgot password?</a></div>
+                            <div class="button input-box">
+                                <input type="button" value="Log in" id="button" onclick="login()" style="color: brown;">
+                            </div>
+                            <div class="text sign-up-text">Don't have an account? <label for="flip">Signup now</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="signup-form">
+                    <div class="title text-center" style="color:red"><h1>SIGNUP</h1></div>
+                    <form action="#">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-user" style="padding-left: 5px;"></i>
+                                <input type="text" id="sname" class="input" placeholder="Enter your name"
+                                    onfocus="removetext()"
+                                    style="background-color: black;border: 1px solid rgb(255, 255, 255); color: #ffffff;" />
+                            </div><span>Name should be 3-50 characters long and only contain letters.</span>
+                            <div class="input-box">
+                                <i class="fas fa-envelope" style="padding-left: 5px;"></i>
+                                <input type="email" id="semail" class="input" placeholder="Enter your email"
+                                    onfocus="removetext()"
+                                    style="background-color: black;border: 1px solid rgb(255, 255, 255); color: #ffffff;" />
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock" style="padding-left: 5px;"></i>
+                                <input type="password" id="spassword" class="input" placeholder="Enter your password"
+                                    onfocus="removetext()"
+                                    style="background-color: black;border: 1px solid rgb(255, 255, 255); color: #ffffff;" />
+
+                                <br> <br>
+
+                                <span id="error" class="">error msg</span>
+                            </div><span>Password must be at least 8 characters long and include at least one letter, one number, and one special character.</span>
+                            <div class="button input-box">
+                                <input type="button" class="" value="Create Account" id="button" onclick="signin()"
+                                    style="color: brown" />
+
+                            </div>
+                            <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- REGISTER -->
+
+    <!-- EXTERNAL JS -->
+    <script src="./js/animatedsignup.js"></script>
+    <!-- EXTERNAL JS -->
+
+    <!-- LOGIN/SIGNUP JS -->
+    <script>
+        function signin() {
+    var name = document.getElementById("sname").value;
+    var email = document.getElementById("semail").value;
+    var password = document.getElementById("spassword").value;
+    var nameRegex = /^[A-Za-z\s]{3,50}$/;
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+    if (name == "" || email == "" || password == "") {
+        Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: 'Please fill all fields',
+            showConfirmButton: false,
+            timer: 2000
+        });
+    } else if (!nameRegex.test(name)) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Invalid name. Name should be 3-50 characters long and only contain letters.',
+            showConfirmButton: false,
+            timer: 3000
+        });
+    } else if (!emailRegex.test(email)) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Invalid email address.',
+            showConfirmButton: false,
+            timer: 2000
+        });
+    } else if (!passwordRegex.test(password)) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: '"Password must be at least 8 characters long and include at least one letter, one number, and one special character.',
+            showConfirmButton: false,
+            timer: 3000
+        });
+    } else {
+        sessionStorage.setItem("name", name);
+        sessionStorage.setItem("email", email);
+        sessionStorage.setItem("password", password);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Account has been created',
+            showConfirmButton: false,
+            timer: 2000
+        }).then(() => {
+            // Clear the form
+            document.getElementById("sname").value = "";
+            document.getElementById("semail").value = "";
+            document.getElementById("spassword").value = "";
+
+            // Switch to the login form
+            document.getElementById("flip").checked = false;
+        });
+    }
+}
+
+
+        function removetext() {
+            var span = document.getElementById("error");
+            span.style.display = "none";
+        }
+
+        function login() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var user_email = sessionStorage.getItem("email");
+            var user_password = sessionStorage.getItem("password");
+
+            if (user_email == email && user_password == password) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Welcome Back',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+                sessionStorage.setItem("user", "true");
+                location.href = "../../index.html";
+
+                // Get the redirect URL from session storage
+                const redirectUrl = sessionStorage.getItem('redirectAfterLogin');
+                if (redirectUrl) {
+                    window.location.href = redirectUrl;
+                    sessionStorage.removeItem('redirectAfterLogin');
+                } else {
+                    window.location.href = '../../index.html';
+                }
+            } else if (email === "" || password === "") {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'warning',
+                    title: 'Please fill all fields',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            } else {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Incorrect email or password.',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        }
+    </script>
+    <!-- LOGIN/SIGNUP JS -->
+
+    <!-------------------------------------- bootstraplink ------------------------------->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-------------------------------------- bootstraplink ------------------------------->
+
+</body>
+</html>

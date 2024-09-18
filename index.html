@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/CSS/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.css" rel="stylesheet">
+  <title>The Heritage Butcher</title>
+  <link rel="shortcut icon"
+    href="https://static.vecteezy.com/system/resources/previews/025/734/855/non_2x/knife-icon-vector.jpg"
+    type="image/x-icon">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar fixed-top">
+    <div class="container-fluid">
+      <div class="cart-icon" data-bs-toggle="modal" data-bs-target="#cartModal">
+        <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+        <span id="cart-count" class="badge bg-danger" style="background-color: red !important;">0</span>
+      </div>
+      <a class="navbar-brand" id="logo" href="./index.html"><img src="./assets/IMAGES/logo.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title offcanvas-logo" id="offcanvasNavbarLabel"><a href="./index.html"><img
+                src="./assets/IMAGES/logo.png" alt=""></a></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./index.html">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./assets/pages/order.html">ORDER</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                MEAT CATEGORY
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./assets/pages/beef.html">BEEF</a></li>
+                <li><a class="dropdown-item" href="./assets/pages/mutton.html">MUTTON/LAMB</a></li>
+                <li><a class="dropdown-item" href="./assets/pages/chicken.html">CHICKEN</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./assets/pages/booking.html">BOOKING</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./assets/pages/butcher.html">BUTCHERS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./assets/pages/about.html">ABOUT US</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./assets/pages/myorders.html">MY ORDERS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./assets/pages/signup.html" id="regbtn">REGISTER</a>
+            </li>
+            <div class="nav-item mt-2">
+              <button class="btn" onclick="darkmode()" id="darkmode-btn"><i class="fas fa-moon fa-lg"></i></button>
+              <button class="btn" onclick="lightmode()" id="lightmode-btn"><i class="fas fa-sun fa-lg"></i></button>
+            </div>
+          </ul>
+          <form class="d-flex mt-3" role="search" id="search-form">
+            <input class="form-control me-2" id="search-input" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-danger" style="background-color: red !important; font-weight: 600;"
+              type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- NAVBAR -->
+
+
+  <!-- CART MODAL -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul id="cart-items" class="list-group"></ul>
+          <p class="mt-3"><strong>Total:</strong> $<span id="cart-total">0.00</span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-dark" style="background-color: red !important; border: none !important;"
+            id="proceed-to-checkout-btn">Proceed to Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- CART MODAL -->
+
+
+  <!-- BILLING ADDRESS MODAL -->
+  <div class="modal fade" id="billingModal" tabindex="-1" aria-labelledby="billingModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="billingModalLabel">Billing Address</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="billing-form">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="contact" class="form-label">Contact</label>
+              <input type="text" class="form-control" id="contact" required>
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">House Address</label>
+              <input type="text" class="form-control" id="address" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-dark" style="background-color: red !important; border: none !important;"
+            id="place-order-btn">Place Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- BILLING ADDRESS MODAL -->
+
+
+  <!-- CAROUSEL -->
+  <div class="container-fluid custom-carousel pt-5 mt-5">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="slide">
+          <div class="item"
+            style="background-image: url(./assets/images/top-view-fresh-meat-slice-raw-meat-with-pepper-greens-dark-background-chicken-meal-color-food-animal-butcher-photo\ \(1\).jpg);filter: brightness(80%);">
+            <div class="content">
+              <div class="name">MUTTON</div>
+              <div class="des p-2">Our mutton is sourced from the finest farms, offering robust flavor and exceptional
+                tenderness for your favorite dishes.</div>
+              <a href="./assets/PAGES/mutton.html"><button>ORDER</button></a>
+            </div>
+          </div>
+          <div class="item" style="background-image: url(./assets/images/beef.jpg);filter: brightness(80%);">
+            <div class="content">
+              <div class="name">BEEF</div>
+              <div class="des p-2">Savor the exceptional taste and tenderness of our premium beef cuts, perfect for
+                steaks,
+                roasts, and everyday meals.
+              </div>
+              <a href="./assets/PAGES/beef.html"><button>ORDER</button></a>
+            </div>
+          </div>
+          <div class="item" style="background-image: url(./assets/images/chicken.jpg);filter: brightness(80%);">
+            <div class="content">
+              <div class="name">CHICKEN</div>
+              <div class="des p-2">Enjoy the juicy tenderness and fresh flavor of our premium chicken, ideal for
+                grilling,
+                roasting, and everyday dishes.</div>
+              <a href="./assets/PAGES/chicken.html"><button>ORDER</button></a>
+            </div>
+          </div>
+          <div class="item" style="background-image: url(./assets/images/lamb.jpg);filter: brightness(80%);">
+            <div class="content">
+              <div class="name">LAMB</div>
+              <div class="des p-2">Delight in the rich, tender flavor of our premium lamb, perfect for creating
+                memorable
+                roasts, stews, and grilled dishes.</div>
+              <a href="./assets/PAGES/mutton.html"><button>ORDER</button></a>
+            </div>
+          </div>
+          <div class="item" style="background-image: url(./assets/images/wagyubeef.jpg); filter: brightness(80%);">
+            <div class="content">
+              <div class="name">WAGYU<br>BEEF</div>
+              <div class="des p-2">Indulge in the unparalleled marbling and rich flavor of our Wagyu beef, offering a
+                melt-in-your-mouth experience that elevates any meal.</div>
+              <a href="./assets/PAGES/beef.html"><button>ORDER</button></a>
+            </div>
+          </div>
+          <div class="item" style="background-image: url(./assets/images/angusbeef.jpg); filter: brightness(80%);">
+            <div class="content">
+              <div class="name">ANGUS<br>BEEF</div>
+              <div class="des p-2">Enjoy the robust flavor and exceptional tenderness of our Angus beef, renowned for
+                its
+                quality and ideal for steaks, roasts, and gourmet dishes.</div>
+              <a href="./assets/PAGES/beef.html"><button>ORDER</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="button">
+          <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+          <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- CAROUSEL -->
+
+
+  <!-- FEATURES SECTION -->
+  <div class="container pt-5 feature-section">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 mt-3">
+        <div data-aos="fade-right" class="card h-100 feature-card">
+          <img style="background-color: red;" src="./assets/images/noun-laboratory-4988552.png" class="card-img-top"
+            alt="...">
+          <div class="card-body" style="border-radius: none !important;">
+            <h4 class="card-title">Laboratory Testing.</h4>
+            <p class="card-text">Meat laboratory testing ensures the highest standards of safety and quality for
+              consumer health.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 mt-3">
+        <div data-aos="fade-right" class="card h-100 feature-card">
+          <img style="background-color: red;" src="./assets/images/noun-meat-6875385.png" class="card-img-top"
+            alt="...">
+          <div class="card-body">
+            <h4 class="card-title">100% Fresh & Organic.</h4>
+            <p class="card-text">Experience the pure taste of nature with our 100% Fresh & Organic meat, free from
+              additives.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 mt-3">
+        <div data-aos="fade-right" class="card h-100 feature-card">
+          <img style="background-color: red;" src="./assets/images/noun-temperature-6875658.png" class="card-img-top"
+            alt="...">
+          <div class="card-body" style="border-radius: none !important;">
+            <h4 class="card-title">Antibacterial Treatment.</h4>
+            <p class="card-text">Enjoy peace of mind with our Antibacterial Treatment meat, ensuring quality
+              in every bite.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 mt-3">
+        <div data-aos="fade-right" class="card h-100 feature-card">
+          <img style="background-color: rgb(255, 0, 0);" src="./assets/images/noun-butcher-5498470.png"
+            class="card-img-top" alt="...">
+          <div class="card-body" style="border-radius: none !important;">
+            <h4 class="card-title">Expert Butchers.</h4>
+            <p class="card-text">We’re always provide people a complete solution focused of any business.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- FEATURES SECTION -->
+
+
+  <!-- SPECIALIZATION SECTION -->
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-3">
+    <img class="specialise-banner" src="./assets/images/specialise banner.jpg" alt="">
+  </div>
+  <div class="container" style="margin-top: -400px;">
+    <div class="row">
+      <h5 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="color: red;">
+        <span>-</span>SPECIALISE IN THE BUTCHERS<span>-</span>
+      </h5>
+      <h1 class="specialise-heading col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center mt-4" style="font-weight: 800;">
+        Our Beef On The
+        Tables Around The World</h1>
+      <div class="col-sm-12 col-md-6 col-lg-3 pt-5 mt-2">
+        <div data-aos="zoom-in" class="card h-100 specialise-card" style="border: none !important;">
+          <a href="./assets/PAGES/mutton.html"><img src="./assets/images/mutton specialise.jpg" class="card-img-top"
+              alt="..."></a>
+          <div class="card-body">
+            <p class="card-title">01 SERVICE</p>
+            <h3 class="card-title" style="font-weight: 600; color: red;">MUTTON CUTS</h3>
+            <h6 class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-3 pt-5 mt-2">
+        <div data-aos="zoom-in" class="card h-100 specialise-card" style="border: none !important;">
+          <a href="./assets/PAGES/beef.html"><img src="./assets/images/beef-specialise.jpg" class="card-img-top"
+              alt="..."></a>
+          <div class="card-body">
+            <p class="card-title">02 SERVICE</p>
+            <h3 class="card-title" style="font-weight: 600; color: red;"> BEEF CUTS</h3>
+            <h6 class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-3 pt-5 mt-2">
+        <div data-aos="zoom-in" class="card h-100 specialise-card" style="border: none !important;">
+          <a href="./assets/PAGES/mutton.html"><img src="./assets/images/lam-specialise.jpg" class="card-img-top"
+              alt="..."></a>
+          <div class="card-body">
+            <p class="card-title">03 SERVICE</p>
+            <h3 class="card-title" style="font-weight: 600; color: red;">LAMB MEAT</h3>
+            <h6 class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-3 pt-5 mt-2">
+        <div data-aos="zoom-in" class="card h-100 specialise-card" style="border: none !important;">
+          <a href="./assets/PAGES/chicken.html"><img src="./assets/images/chicken specialise.jpg" class="card-img-top"
+              alt="..."></a>
+          <div class="card-body">
+            <p class="card-title">04 SERVICE</p>
+            <h3 class="card-title" style="font-weight: 600; color: red;">CHICKEN MEAT</h3>
+            <h6 class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SPECIALIZATION SECTION -->
+
+
+  <!-- DELIVERY SECTION -->
+  <div class="container delivery-section mt-5 ">
+    <div class="row ">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt-5">
+        <div class="card delivery-truck" style="background: none; border: none;">
+          <img style=" height: 500px;" src="./assets/IMAGES/noun-delivery-truck-6976284.png" alt="...">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pt-5">
+        <div class="card delivery-desc" style="background: none; border: none;">
+          <div class="card-body">
+            <h5 class="card-title" style="font-weight: 600;color: white;">WE DELIVER ON TIME <span
+                style="text-decoration: line-through;">-</span></h5>
+            <h1 class="card-text mt-4" style="font-weight: 800; color: white;">Best Meat Shop in Your Town Since 1988.
+            </h1>
+            <p class="card-text mt-2" style="font-weight: 600; color: white;">Long established fact that a reader will
+              be distracted by the readable content of a page when looking at its layout.</p>
+            <div class="delivery-boxes text-center">
+              <div class="boxes text-center pt-4">
+                <h1 class="count-text" style="font-weight: 800;">1340</h1>
+                <h5 style="font-weight: 600;">Projects<br>Completed</h5><img class="delivery-icons"
+                  src="./assets/images/noun-meat-shop-5445252.png" alt="">
+              </div>
+              <div class="boxes text-center pt-4">
+                <h1 class="count-text" style="font-weight: 800;">1256</h1>
+                <h5 style="font-weight: 600;">Satisfied<br>Clients</h5><img class="delivery-icons"
+                  src="./assets/images/noun-fork-and-knife-3649156.png" alt="">
+              </div>
+              <div class="boxes text-center pt-4">
+                <h1 class="count-text" style="font-weight: 800;">1310</h1>
+                <h5 style="font-weight: 600;">Deliver On<br>Time</h5><img class="delivery-icons"
+                  src="./assets/images/noun-meat-cutting-6896813.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- DELIVERY SECTION -->
+
+
+  <!-- ORDER PROCEDURE SECTION -->
+  <div class="container mt-5">
+    <div class="row">
+      <h5 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style=" color: red;">
+        <span>-</span>HOW IT WORKS<span>-</span>
+      </h5>
+      <h1 class="order-procedure-heading col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center mt-4"
+        style="font-weight: 800;">3 Steps To Task
+      </h1>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-5">
+        <div class="task-boxes">
+          <div data-aos="fade-right" class="task-box">
+            <div class="task-box-img"><img src="./assets/images/noun-cuts-of-beef-57968.png" alt="">
+            </div>
+            <h3 class="orderdesc text-center mt-5 pt-3" style="font-weight: 600; border-top: 6px solid red;">Enter Your
+              <br> Order
+              Details
+            </h3>
+          </div>
+          <img class="fork-knife" style="width: 50px; height: 50px; position: relative; top: 100px;"
+            src="./assets/images/noun-fork-and-knife-36491562.png" alt="">
+          <div data-aos="fade-right" class="task-box">
+            <div class="task-box-img"><img src="./assets/images/noun-butcher-5498470.png" alt=""></div>
+            <h3 class="orderdesc text-center mt-5 pt-3" style="font-weight: 600; border-top: 6px solid red;">Pay Your
+              Service<br>
+              Charges</h3>
+          </div>
+          <img class="fork-knife" style="width: 50px; height: 50px; position: relative; top: 100px;"
+            src="./assets/images/noun-fork-and-knife-36491562.png" alt="">
+          <div data-aos="fade-right" class="task-box">
+            <div class="task-box-img"><img src="./assets/images/noun-meat-cutting-6896813.png" alt=""></div>
+            <h3 class="orderdesc text-center mt-5 pt-3" style="font-weight: 600; border-top: 6px solid red;">Ready To
+              Send<br>
+              Your Meats</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ORDER PROCEDURE SECTION -->
+
+
+  <!-- LATEST PROJECT SECTION -->
+  <!-- SWIPER -->
+  <div class="container mt-5 pt-5 latest-projects-section">
+    <div class="row">
+      <h5 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style=" color: red;">
+        <span>-</span>LATEST PROJECTS<span>-</span>
+      </h5>
+      <h1 class="latest-projects-heading col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center mt-4"
+        style="font-weight: 800;">Works Across The
+        World</h1>
+      <div #swiperRef="" class="swiper mySwiper mt-3">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide col-xs-12 col-sm-12 slide-with-text">
+            <div style="z-index: 1;" class="slide-content">
+              <p>BEEF</p>
+              <h3>Beef Steak</h3>
+            </div>
+            <a href="./assets/PAGES/beef.html"><img src="./assets/IMAGES/project-1.jpg" alt=""></a>
+          </div>
+          <div class="swiper-slide col-xs-12 col-sm-12 slide-with-text">
+            <div style="z-index: 1;" class="slide-content">
+              <p>CARGO</p>
+              <h3>Chicken Meat</h3>
+            </div>
+            <a href="./assets/PAGES/chicken.html"><img src="./assets/IMAGES/project-2.jpg" alt=""></a>
+          </div>
+          <div class="swiper-slide col-xs-12 col-sm-12 slide-with-text">
+            <div style="z-index: 1;" class="slide-content">
+              <p>LAMB</p>
+              <h3>Lamb Kabab</h3>
+            </div>
+            <a href="./assets/PAGES/mutton.html"><img src="./assets/IMAGES/project-3.jpg" alt=""></a>
+          </div>
+          <div class="swiper-slide col-xs-12 col-sm-12 slide-with-text">
+            <div style="z-index: 1;" class="slide-content">
+              <p>STEAK</p>
+              <h3>Lemon Beef</h3>
+            </div>
+            <a href="./assets/PAGES/beef.html"><img src="./assets/IMAGES/project-4.jpg" alt=""></a>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </div>
+  <!-- SWIPER -->
+  <!-- SWIPER JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- SWIPER JS CDN -->
+  <!-- INITIALIZE SWIPER -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      centeredSlides: true,
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      initialSlide: 1,
+    });
+  </script>
+  <!-- INITIALIZE SWIPER -->
+  <!-- LATEST PROJECT SECTION -->
+
+
+  <!-- CLIENT TESTIMONIAL SECTION -->
+  <div class="container mt-5 pt-5">
+    <div class="row">
+      <h5 class=" col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style=" color: red;">
+        <span>-</span>CLIENT’S TESTIMONIALS<span>-</span>
+      </h5>
+      <h1 class="ct-heading col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center mt-4" style="font-weight: 800;">Here Are
+        Some
+        Clients Feedbacks</h1>
+      <div class="header text-center">
+      </div>
+      <div id="carouselExampleControls" class="carousel slide text-center carousel-dark"
+        data-bs-target="#carouselExampleControls">
+        <div class="carousel-inner">
+          <div class="carousel-item active mt-5">
+            <img class="rounded-circle shadow-1-strong mb-4" src="./assets/IMAGES/icon-4399701_1280.png" alt=""
+              style="width: 150px;" />
+            <div class=" d-flex justify-content-center">
+              <div class="col-lg-8">
+                <h5 class="username mb-3">John Doe</h5>
+                <p id="user-review" class="text">
+                  "The chicken we bought was incredibly tender and flavorful. It cooked up perfectly and was a hit at
+                  our family dinner, Everyone really enjoyed it."
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="far fa-star fa-solid"></i></li>
+              <li><i class="far fa-star fa-solid"></i></li>
+            </ul>
+          </div>
+          <div class="carousel-item mt-5">
+            <img class="rounded-circle shadow-1-strong mb-4" src="./assets/IMAGES/icon-4399701_1280.png" alt=""
+              style="width: 150px;" />
+            <div class="d-flex justify-content-center">
+              <div class="col-lg-8">
+                <h5 class="username mb-3">William</h5>
+                <p id="user-review" class="text">
+                  "We were delighted with the beef; it was juicy, well-marbled, and had a rich taste. It's definitely
+                  the best beef we've had in a long time."
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="far fa-star fa-solid"></i></li>
+            </ul>
+          </div>
+          <div class="carousel-item mt-5">
+            <img class="rounded-circle shadow-1-strong mb-4" src="./assets/IMAGES/icon-4399701_1280.png" alt=""
+              style="width: 150px;" />
+            <div class="d-flex justify-content-center">
+              <div class="col-lg-8">
+                <h5 class="username mb-3">Edward</h5>
+                <p id="user-review" class="text">
+                  "The lamb was absolutely exquisite, with a savory taste that left us wanting more. It was fresh and
+                  cooked to a perfect tenderness."
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="far fa-star fa-solid"></i></li>
+              <li><i class="far fa-star fa-solid"></i></li>
+            </ul>
+          </div>
+          <div class="carousel-item mt-5">
+            <img class="rounded-circle shadow-1-strong mb-4" src="./assets/IMAGES/icon-4399701_1280.png" alt=""
+              style="width: 150px;" />
+            <div class="d-flex justify-content-center">
+              <div class="col-lg-8">
+                <h5 class="username mb-3">George</h5>
+                <p id="user-review" class="text">
+                  "I was impressed by the quality of the mutton; it was fresh, lean, and had a fantastic flavor. It made
+                  our stew taste amazing."
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="far fa-star fa-solid"></i></li>
+            </ul>
+          </div>
+          <div class="carousel-item mt-5">
+            <img class="rounded-circle shadow-1-strong mb-4" src="./assets/IMAGES/icon-4399701_1280.png" alt=""
+              style="width: 150px;" />
+            <div class="d-flex justify-content-center">
+              <div class="col-lg-8">
+                <h5 class="username mb-3">Everett</h5>
+                <p id="user-review" class="text">
+                  "The chicken we purchased was not only fresh but also incredibly tasty. It was a standout in our meal
+                  and received rave reviews from everyone."
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="fas fa-star fa-solid"></i></li>
+              <li><i class="far fa-star fa-solid"></i></li>
+            </ul>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- CLIENT TESTIMONIAL SECTION -->
+
+
+  <!-- FOOTER -->
+  <footer class="footer-body pt-5 mt-5" style=" border-top: 3px solid red;">
+    <div class="container p-3">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 mb-4">
+          <div class="footer-logo"><a href="./index.html"><img src="./assets/IMAGES/logo.png" alt=""></a></div><br>
+          <p class="footer-desc">
+            For over Three decades, The Heritage Butcher has proudly served as a premier online destination for
+            top-quality,
+            hygienic meat. Our unwavering dedication to excellence and customer satisfaction has cultivated a
+            loyal clientele who trust us for the finest cuts and exceptional service.
+          </p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="useful-heading mb-3" style="letter-spacing: 2px; color: rgb(0, 0, 0);">USEFUL LINKS</h5>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-1">
+              <a href="./assets/pages/about.html" style="text-decoration: none;">Frequently Asked
+                Questions</a>
+            </li>
+            <li class="mb-1">
+              <a href="./assets/pages/about.html" style="text-decoration: none;">Delivery</a>
+            </li>
+            <li class="mb-1">
+              <a href="./assets/pages/about.html" style="text-decoration: none;">Quality</a>
+            </li>
+            <li>
+              <a href="./assets/pages/about.html" style="text-decoration: none;">Where we
+                delivering?</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="timing-heading mb-1" style="letter-spacing: 2px; color: #000000;">TIMING FOR ORDER</h5>
+          <table class="table" style="border-color: #ff0000;">
+            <tbody class="tbody">
+              <tr class="tr">
+                <td>Sunday - Monday :</td>
+                <td>8am - 9pm</td>
+              </tr>
+              <tr>
+                <td>Tuesday :</td>
+                <td>Closed</td>
+              </tr>
+              <tr>
+                <td>Wednesday - Saturday :</td>
+                <td>8am - 9pm</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="text-center p-3" style="background-color: #ff0000;color: #ffffff !important;">
+      © 2030 Copyright :
+      <a class="text-dark" style="text-decoration: none; color: white !important;"
+        href="./index.html">TheHeritageButcher.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- FOOTER -->
+
+
+  <!-- UPDATING REG BUTTON -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var regBtn = document.getElementById("regbtn");
+
+      if (regBtn) {
+        if (sessionStorage.getItem("user") === "true") {
+          regBtn.textContent = "LOGOUT";
+          regBtn.removeAttribute("href"); // Remove any href to prevent default navigation
+          regBtn.addEventListener("click", function () {
+            sessionStorage.removeItem("user");
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Logged out successfully',
+              showConfirmButton: false,
+              timer: 2000
+            }).then(() => {
+              window.location.href = './index.html';
+            });
+          });
+        } else {
+          regBtn.textContent = "REGISTER";
+          regBtn.setAttribute("href", "./assets/pages/signup.html");
+          // No need to add another event listener here as the href will handle the redirect
+        }
+      }
+    });
+
+  </script>
+  <!-- UPDATING REG BUTTON -->
+
+
+  <!-- SEARCH JS -->
+  <script>
+    document.getElementById('search-form').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent the form from submitting normally
+
+      const query = document.getElementById('search-input').value.trim().toLowerCase();
+
+      if (query) {
+        // List of your website's pages
+        const pages = {
+          'home': './index.html',
+          'order': './assets/PAGES/order.html',
+          'beef': './assets/PAGES/beef.html',
+          'mutton': './assets/PAGES/mutton.html',
+          'chicken': './assets/PAGES/chicken.html',
+          'booking': './assets/PAGES/booking.html',
+          'about': './assets/PAGES/about.html',
+          'myorders': './assets/PAGES/myorders.html',
+          // Add more pages here
+        };
+
+        const pageUrl = pages[query];
+        if (pageUrl) {
+          window.location.href = pageUrl;
+        } else {
+          alert('Page not found.');
+        }
+      }
+    });
+  </script>
+  <!-- SEARCH JS -->
+
+
+  <!-- AOS ANIMATION JS CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- AOS ANIMATION JS CDN -->
+
+
+  <!-- BOOTSTRAP JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <!-- BOOTSTRAP JS CDN -->
+
+
+  <!-- JQUERY CDN -->
+  <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- JQUERY CDN -->
+
+
+  <!-- SWIPER JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- SWIPER JS CDN -->
+
+
+  <!-- COUNT-TEXT JS -->
+  <script>
+    // Get the count text elements
+    const countTexts = document.querySelectorAll('.count-text');
+
+    // Define the animation function
+    function animateCountText(element, endValue) {
+      let currentValue = 0;
+      let interval = setInterval(() => {
+        currentValue += 10; // increment by 10
+        element.textContent = currentValue.toLocaleString(); // update the text content
+        if (currentValue >= endValue) {
+          clearInterval(interval);
+          element.textContent = endValue.toLocaleString(); // set the final value
+        }
+      }, 50); // interval duration in ms
+    }
+
+    // Animate the count text elements
+    countTexts.forEach((element, index) => {
+      const endValue = parseInt(element.textContent); // get the end value from the text content
+      animateCountText(element, endValue);
+    });
+  </script>
+  <!-- COUNT-TEXT JS -->
+
+
+  <!-- CAROUSEL JS -->
+  <script>
+    let next = document.querySelector('.next')
+    let prev = document.querySelector('.prev')
+    next.addEventListener('click', function () {
+      let items = document.querySelectorAll('.item')
+      document.querySelector('.slide').appendChild(items[0])
+    })
+    prev.addEventListener('click', function () {
+      let items = document.querySelectorAll('.item')
+      document.querySelector('.slide').prepend(items[items.length - 1]) // here the length of items = 6
+    })
+  </script>
+  <!-- CAROUSEL JS -->
+
+
+  <!-- AOS JS -->
+  <script>
+    AOS.init();
+  </script>
+  <!-- A
+   OS JS -->
+
+  <!-- CART JS -->
+  <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    function updateCart() {
+      const cartCount = document.getElementById('cart-count');
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      cartCount.textContent = cart.length;
+      cartItems.innerHTML = '';
+      let totalAmount = 0;
+
+      cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.className = 'list-group-item d-flex justify-content-between align-items-center';
+
+        // Product name and price
+        const productInfo = document.createElement('div');
+        productInfo.textContent = `${item.name} - $${item.price}`;
+
+        // Quantity input with decimal support
+        const quantityInput = document.createElement('input');
+        quantityInput.type = 'number';
+        quantityInput.value = item.quantity || 1;
+        quantityInput.min = 0.1; // Allow minimum of 0.1
+        quantityInput.step = 0.1; // Allow increments of 0.1
+        quantityInput.className = 'form-control quantity-input';
+        quantityInput.style.width = '60px';
+        quantityInput.addEventListener('input', () => {
+          item.quantity = parseFloat(quantityInput.value);
+          updateCart();
+        });
+
+        // Calculate total for this product
+        const itemTotal = parseFloat(item.price) * (item.quantity || 1);
+        totalAmount += itemTotal;
+
+        // Remove button
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'btn btn-danger btn-sm';
+        removeBtn.textContent = 'Remove';
+        removeBtn.addEventListener('click', () => {
+          cart.splice(index, 1);
+          updateCart();
+        });
+
+        // Append elements to the list item
+        li.appendChild(productInfo);
+        li.appendChild(quantityInput);
+        li.appendChild(removeBtn);
+        cartItems.appendChild(li);
+      });
+
+      cartTotal.textContent = totalAmount.toFixed(2); // Update the total amount in the modal
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const name = button.getAttribute('data-name');
+        const price = button.getAttribute('data-price');
+        const existingItemIndex = cart.findIndex(item => item.name === name);
+
+        if (existingItemIndex !== -1) {
+          // If the item already exists in the cart, increase the quantity by 1
+          cart[existingItemIndex].quantity += 1;
+        } else {
+          // Add the new item with quantity 1
+          cart.push({ name, price, quantity: 1 });
+        }
+
+        updateCart();
+
+        // Show notification
+        const toast = new bootstrap.Toast(document.getElementById('cart-toast'));
+        toast.show();
+      });
+    });
+
+    // Initial cart update
+    updateCart();
+
+    document.getElementById('proceed-to-checkout-btn').addEventListener('click', () => {
+      if (cart.length === 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Your cart is empty!',
+          text: 'Please add products to your cart before proceeding to checkout.',
+        });
+      } else {
+        // Hide the cart modal
+        const cartModal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
+        cartModal.hide();
+
+        // Show the billing modal
+        const billingModal = new bootstrap.Modal(document.getElementById('billingModal'));
+        billingModal.show();
+      }
+    });
+
+    document.getElementById('place-order-btn').addEventListener('click', () => {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      const address = document.getElementById('address').value.trim();
+
+      if (name && email && contact && address) {
+        const existingOrders = JSON.parse(localStorage.getItem('orders')) || [];
+        const newOrder = {
+          id: Date.now(),
+          date: new Date().toLocaleString(),
+          name,
+          email,
+          contact,
+          address,
+          products: [...cart],
+        };
+
+        existingOrders.push(newOrder);
+        localStorage.setItem('orders', JSON.stringify(existingOrders));
+        sessionStorage.setItem('orderDetails', JSON.stringify(newOrder));
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Your order has been placed!',
+          showConfirmButton: false,
+          timer: 2000,
+        });
+
+        cart = [];
+        updateCart();
+        localStorage.removeItem('cart');
+
+        const billingModal = bootstrap.Modal.getInstance(document.getElementById('billingModal'));
+        billingModal.hide();
+
+        setTimeout(() => {
+          window.location.href = '../pages/myorders.html';
+        }, 2000);
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Please fill in all fields',
+        });
+      }
+    });
+  </script>
+  <!-- CART JS -->
+
+  <!-- SCROLLUP JS -->
+  <script src="./assets/js/jquery.scrollUp.min.js"></script>
+  <script>
+    $(function () {
+      $.scrollUp({
+        scrollImg: true,
+      });
+    });
+  </script>
+  <!-- SCROLLUP JS -->
+
+
+  <!-- DARK/LIGHT MODE JS -->
+  <script src="./assets/js/darklightmode.js"></script>
+  <!-- DARK/LIGHT MODE JS -->
+
+
+  <!-- SWEETALERT JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- SWEETALERT JS CDN -->
+
+</body>
+
+</html>

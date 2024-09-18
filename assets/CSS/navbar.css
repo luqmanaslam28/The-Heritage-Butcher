@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#logo img{
+    width: 430px;
+    height: 65px;
+}
+
+/* REGBTN */
+#regbtn{
+    font-weight: 800;
+    position: relative;
+}
+#regbtn::before{
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: red;
+    transition: all .5s;
+}
+#regbtn:hover::before{
+    width: 100%;
+}
+/* REGBTN */
+
+
+/* NAVBAR CSS */
+.navbar {
+    border-bottom: 5px solid red;
+}
+
+.navbar-nav {
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+}
+.navbar-toggler{
+    color: red !important;
+}
+
+
+.nav-item{
+    position: relative;
+}
+
+.nav-item a::before{
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: red;
+    transition: all .5s;
+    cursor: pointer;
+
+}
+.nav-item a:hover::before{
+    width: 100%;
+}
+
+.dropdown-item {
+    font-weight: 1000;
+    cursor: pointer;
+}
+#offcanvasNavbarLabel img{
+width: 320px;
+height: 50px;
+}
+/* NAVBAR CSS */
+
+/* FOOTER CSS */
+i{
+    color: red;
+}
+.footer {
+    border-top: 5px solid red !important;
+    background-color: white;
+}
+/* FOOTER CSS */
+
+
+
+/* Media Queries */
+
+/* Extra Small Devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+    #logo img {
+        width: 240px;
+        height: auto;
+    }
+    .navbar-nav {
+        font-size: 14px;
+    }
+    #offcanvasNavbarLabel img {
+        width: 300px;
+        height: auto;
+    }
+}
+
+/* Small Devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    #logo img {
+        width: 300px;
+        height: auto;
+    }
+    .navbar-nav {
+        font-size: 16px;
+    }
+    #offcanvasNavbarLabel img {
+        width: 250px;
+        height: auto;
+    }
+}
+
+/* Medium Devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #logo img {
+        width: 350px;
+        height: auto;
+    }
+    .navbar-nav {
+        font-size: 18px;
+    }
+    #offcanvasNavbarLabel img {
+        width: 300px;
+        height: auto;
+    }
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #logo img {
+        width: 380px;
+        height: auto;
+    }
+    .navbar-nav {
+        font-size: 18px;
+    }
+    #offcanvasNavbarLabel img {
+        width: 320px;
+        height: auto;
+    }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    #logo img {
+        width: 400px;
+        height: 60px;
+    }
+    .navbar-nav {
+        font-size: 18px;
+    }
+    #offcanvasNavbarLabel img {
+        width: 320px;
+        height: 50px;
+    }
+}
+
+
+

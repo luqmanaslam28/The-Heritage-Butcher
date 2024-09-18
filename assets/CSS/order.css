@@ -1,0 +1,495 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../IMAGES/4006.jpg);
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+#scrollUp {
+    bottom: 20px;
+    right: 20px;
+    background-image: url('../IMAGES/top.png');
+    width: 38px;
+    height: 38px;
+  }
+
+/* ADD TO CART ICON CSS */
+.cart-icon i {
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+}
+
+/* ADD TO CART ICON CSS */
+
+/* LOGO CSS */
+#logo img {
+    width: 350px;
+}
+
+/* LOGO CSS */
+
+/* DARKLIGHTMODE BTN CSS */
+#lightmode-btn {
+    position: relative;
+    right: 50px;
+    color: red;
+}
+
+#darkmode-btn {
+    background-color: red;
+    color: white;
+}
+
+/* DARKLIGHTMODE BTN CSS */
+
+/* NAVBAR CSS */
+.navbar {
+    background-color: white;
+    border-bottom: 5px solid red;
+}
+
+.navbar-nav {
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.navbar-toggler {
+    color: red !important;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    background-color: red;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.nav-item a:hover::before {
+    width: 100%;
+}
+
+#offcanvasNavbarLabel img {
+    width: 100%;
+    height: 100px;
+}
+
+body.dark-mode .btn-close {
+    filter: invert(1);
+}
+
+/* NAVBAR CSS */
+
+/* ADD TO CART ICON CSS */
+.cart-icon i {
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+}
+
+/* ADD TO CART ICON CSS */
+
+/* ADD TO CART CARDS CSS */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .4);
+}
+
+#atc-btn {
+    color: rgb(210, 3, 3);
+    transition: all 0.5s ease-in-out;
+    border: none;
+}
+
+#atc-btn:hover {
+    color: white;
+    background-color: red;
+}
+
+.toast-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1050;
+}
+
+.float-img-1 {
+    height: 130px;
+    display: flex;
+    justify-content: end;
+}
+
+.float-img-1 img {
+    width: 330px;
+    height: 320px;
+    z-index: 1000;
+}
+
+.float-img-2 {
+    height: 130px;
+    display: flex;
+    justify-content: start;
+
+}
+
+.float-img-2 img {
+    width: 340px;
+    height: 370px;
+    z-index: 1000;
+}
+
+.float-img-3 {
+    height: 130px;
+    display: flex;
+    justify-content: end;
+}
+
+.float-img-3 img {
+    width: 370px;
+    height: 320px;
+    z-index: 1000;
+}
+
+/* ADD TO CART CARDS CSS */
+
+
+/* FOOTER CSS */
+.footer-logo img {
+    width: 400px;
+    height: 135px !important;
+
+}
+footer li a{
+    color: red !important;
+    }
+
+/* FOOTER CSS */
+
+body {
+    --sb-track-color: white;
+    --sb-thumb-color: red;
+    --sb-size: 14px;
+}
+
+body::-webkit-scrollbar {
+    width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 0px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 0px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
+
+/* MEDIA QUERIES */
+/* Extra Small Devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+    #logo img {
+        width: 210px;
+    }
+
+    .navbar-nav {
+        font-size: 14px;
+    }
+
+    .navbar-toggler {
+        font-size: 12px;
+    }
+
+    .navbar-toggler-icon {
+        font-size: 12px;
+    }
+
+    #offcanvasNavbarLabel img {
+        width: 210px;
+        height: auto;
+    }
+
+    .footer-logo img {
+        width: 310px;
+        height: 80px;
+    }
+
+    .cart-icon i {
+        font-size: 18px;
+    }
+
+    #cart-count {
+        font-size: 10px;
+    }
+
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .float-img-1 {
+        visibility: hidden;
+    }
+
+    .float-img-1 img {
+        visibility: hidden;
+    }
+
+    .float-img-2 {
+        visibility: hidden;
+    }
+
+    .float-img-2 img {
+        visibility: hidden;
+    }
+
+    .float-img-3 {
+        visibility: hidden;
+    }
+
+    .float-img-3 img {
+        visibility: hidden;
+    }
+
+    .beef-heading {
+        margin-top: -80px !important;
+    }
+
+    .mutton-heading {
+        margin-top: -75px !important;
+    }
+
+    .chicken-heading {
+        margin-top: -65px !important;
+    }
+}
+
+/* Small Devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    #logo img {
+        width: 320px;
+    }
+
+    .navbar-nav {
+        font-size: 16px;
+    }
+
+    #offcanvasNavbarLabel img {
+        width: 250px;
+        height: auto;
+    }
+
+    .float-img-1 {
+        visibility: hidden;
+    }
+
+    .float-img-1 img {
+        visibility: hidden;
+    }
+
+    .float-img-2 {
+        visibility: hidden;
+    }
+
+    .float-img-2 img {
+        visibility: hidden;
+    }
+
+    .float-img-3 {
+        visibility: hidden;
+    }
+
+    .float-img-3 img {
+        visibility: hidden;
+    }
+
+    .beef-heading {
+        margin-top: -80px !important;
+    }
+
+    .mutton-heading {
+        margin-top: -75px !important;
+    }
+
+    .chicken-heading {
+        margin-top: -65px !important;
+    }
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* Medium Devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #logo img {
+        width: 340px;
+    }
+
+    .navbar-nav {
+        font-size: 18px;
+    }
+
+    #offcanvasNavbarLabel img {
+        width: 300px;
+        height: auto;
+    }
+
+    .float-img-1 {
+        visibility: hidden;
+    }
+
+    .float-img-1 img {
+        visibility: hidden;
+    }
+
+    .float-img-2 {
+        visibility: hidden;
+    }
+
+    .float-img-2 img {
+        visibility: hidden;
+    }
+
+    .float-img-3 {
+        visibility: hidden;
+    }
+
+    .float-img-3 img {
+        visibility: hidden;
+    }
+
+    .beef-heading {
+        margin-top: -80px !important;
+    }
+
+    .mutton-heading {
+        margin-top: -75px !important;
+    }
+
+    .chicken-heading {
+        margin-top: -65px !important;
+    }
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #logo img {
+        width: 350px;
+    }
+
+    .navbar-nav {
+        font-size: 18px;
+    }
+
+    #offcanvasNavbarLabel img {
+        width: 350px;
+        height: auto;
+    }
+
+    .float-img-1 {
+        visibility: hidden;
+    }
+
+    .float-img-1 img {
+        visibility: hidden;
+    }
+
+    .float-img-2 {
+        visibility: hidden;
+    }
+
+    .float-img-2 img {
+        visibility: hidden;
+    }
+
+    .float-img-3 {
+        visibility: hidden;
+    }
+
+    .float-img-3 img {
+        visibility: hidden;
+    }
+
+    .beef-heading {
+        margin-top: -80px !important;
+    }
+
+    .mutton-heading {
+        margin-top: -75px !important;
+    }
+
+    .chicken-heading {
+        margin-top: -65px !important;
+    }
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1200px) {
+    #logo img {
+        width: 350px;
+    }
+
+    .navbar-nav {
+        font-size: 18px;
+    }
+
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* MEDIA QUERIES */

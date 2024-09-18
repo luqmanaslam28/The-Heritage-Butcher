@@ -1,0 +1,461 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url(../IMAGES/4006.jpg);
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+#scrollUp {
+  bottom: 20px;
+  right: 20px;
+  background-image: url('../IMAGES/top.png');
+  width: 38px;
+  height: 38px;
+}
+
+/* LOGO CSS */
+#logo img {
+  width: 350px;
+}
+
+/* LOGO CSS */
+
+
+/* REGBTN */
+#regbtn {
+  font-weight: 700;
+}
+/* REGBTN */
+
+
+/* DARKLIGHTMODE BTN CSS */
+#lightmode-btn {
+  position: relative;
+  right: 50px;
+  color: red;
+}
+
+#darkmode-btn {
+  background-color: red;
+  color: white;
+}
+
+/* DARKLIGHTMODE BTN CSS */
+
+
+/* NAVBAR CSS */
+.navbar {
+  background-color: white;
+  border-bottom: 5px solid red;
+}
+
+.navbar-nav {
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.navbar-toggler {
+  color: red !important;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  background-color: red;
+  transition: all .5s;
+  cursor: pointer;
+}
+
+.nav-item a:hover::before {
+  width: 100%;
+}
+
+#offcanvasNavbarLabel img {
+  width: 100%;
+  height: 100px;
+}
+
+body.dark-mode .btn-close {
+  filter: invert(1);
+}
+
+/* NAVBAR CSS */
+
+/* ADD TO CART ICON CSS */
+.cart-icon i {
+  font-size: 25px;
+  color: black;
+  cursor: pointer;
+}
+/* ADD TO CART ICON CSS */
+
+
+/* ABOUTUS CONTENT CSS */
+.abt2-pic img{
+  width: 100%;
+}
+.float-img-1 {
+  height:1px;
+  position: relative;
+  bottom: 230px;
+  display: flex;
+  justify-content: start;
+}
+.float-img-1 img {
+  width: 300px;
+  height: 300px;
+  z-index: 1000;
+}
+.float-img-2 {
+  height:1px;
+  position: relative;
+  bottom: 200px;
+  display: flex;
+  justify-content:start;
+}
+.float-img-2 img {
+  width: 340px;
+  height: 300px;
+  z-index: 1000;
+}
+.float-img-3 {
+  height:1px;
+  display: flex;
+  justify-content: end;
+  position: relative;
+  bottom: 150px;
+}
+.float-img-3 img {
+  width: 370px;
+  height: 320px;
+  z-index: 1000;
+}
+/* ABOUTUS CONTENT CSS */
+
+
+/* ACCORDION CSS */
+.accordion-button:not(.collapsed){
+  background-color: rgb(114, 0, 0);
+  color: white;
+}
+.accordion-button{
+  color: white;
+}
+.accordion{
+  --bs-accordion-btn-bg: rgb(149, 0, 0);
+}
+/* ACCORDION CSS */
+
+
+/* FOOTER CSS */
+.footer-logo img {
+  width: 400px;
+  height: 135px !important;
+}
+footer li a{
+  color: red !important;
+  }
+/* FOOTER CSS */
+
+
+body {
+  --sb-track-color: white;
+  --sb-thumb-color: red;
+  --sb-size: 14px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 0px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 0px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+      scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
+
+
+/* MEDIA QUERIES */
+
+/* Ultra Extra Small Devices (very small phones, less than 369px) */ 
+@media (max-width: 368.98px) {
+    #logo img {
+        width: 200px !important;
+        height: auto;
+    }
+
+    .navbar-nav {
+        font-size: 12px !important;
+    }
+
+    .navbar-toggler {
+        font-size: 10px !important;
+    }
+
+    .navbar-toggler-icon {
+        font-size: 10px !important;
+    }
+
+    #offcanvasNavbarLabel img {
+        width: 250px !important;
+        height: auto;
+    }
+
+    .footer-logo img {
+        width: 280px !important;
+        height: 50px;
+    }
+
+    .cart-icon i {
+        font-size: 16px !important;
+    }
+
+    #cart-count {
+        font-size: 8.5px !important;
+    }
+  }
+
+
+/* Extra Small Devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  #logo img {
+    width: 210px;
+}
+
+.navbar-nav {
+    font-size: 14px;
+}
+
+.navbar-toggler{
+    font-size: 12px;
+}
+.navbar-toggler-icon{
+    font-size: 12px;
+}
+
+#offcanvasNavbarLabel img {
+    width: 210px;
+    height: auto;
+}
+
+.footer-logo img {
+    width: 310px;
+    height: 80px;
+}
+
+.cart-icon i {
+    font-size: 18px;
+}
+#cart-count{
+    font-size: 10px;
+}
+.ourmission img{
+  width: 300px;
+}
+.float-img-1{
+  visibility: hidden;
+}
+.float-img-1 img{
+  visibility: hidden;
+}
+.float-img-2{
+  visibility: hidden;
+}
+.float-img-2 img{
+  visibility: hidden;
+}
+.float-img-3{
+  visibility: hidden;
+}
+.float-img-3 img{
+  visibility: hidden;
+}
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+}
+
+/* Small Devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  #logo img {
+    width: 320px;
+  }
+
+  .navbar-nav {
+    font-size: 16px;
+  }
+
+  #offcanvasNavbarLabel img {
+    width: 250px;
+    height: auto;
+  }
+  .ourmission img{
+    width: 330px;
+  }
+  .float-img-1{
+    visibility: hidden;
+  }
+  .float-img-1 img{
+    visibility: hidden;
+  }
+  .float-img-2{
+    visibility: hidden;
+  }
+  .float-img-2 img{
+    visibility: hidden;
+  }
+  .float-img-3{
+    visibility: hidden;
+  }
+  .float-img-3 img{
+    visibility: hidden;
+  }
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Medium Devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #logo img {
+    width: 340px;
+  }
+
+  .navbar-nav {
+    font-size: 18px;
+  }
+  #offcanvasNavbarLabel img {
+    width: 300px;
+    height: auto;
+  }
+  .abt2-pic img{
+    width: 110%;
+    height: 380px;
+    position: relative;
+    top: 50px;
+  }
+  .ourmission img{
+    width: 330px;
+    position: relative;
+    top: 100px;
+  }
+  .ourmission-heading{
+    position: relative;
+    bottom: 50px;
+  }
+  .float-img-1{
+    visibility: hidden;
+  }
+  .float-img-1 img{
+    visibility: hidden;
+  }
+  .float-img-2{
+    visibility: hidden;
+  }
+  .float-img-2 img{
+    visibility: hidden;
+  }
+  .float-img-3{
+    visibility: hidden;
+  }
+  .float-img-3 img{
+    visibility: hidden;
+  }
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  #logo img {
+    width: 350px;
+  }
+  .navbar-nav {
+    font-size: 18px;
+  }
+  #offcanvasNavbarLabel img {
+    width: 350px;
+    height: auto;
+  }
+  .ourmission img{
+    width:400px;
+    position: relative;
+    top: 20px;
+  }
+  .ourmission-heading{
+    position: relative;
+    bottom: 50px;
+  }
+  .float-img-1{
+    visibility: hidden;
+  }
+  .float-img-1 img{
+    visibility: hidden;
+  }
+  .float-img-2{
+    visibility: hidden;
+  }
+  .float-img-2 img{
+    visibility: hidden;
+  }
+  .float-img-3{
+    visibility: hidden;
+  }
+  .float-img-3 img{
+    visibility: hidden;
+  }
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1600px) {
+  #logo img {
+    width: 350px;
+  }
+  .navbar-nav {
+    font-size: 18px;
+  }
+  .float-img-2 img{
+    visibility: hidden;
+  }
+}
+
+/* MEDIA QUERIES */
+
+

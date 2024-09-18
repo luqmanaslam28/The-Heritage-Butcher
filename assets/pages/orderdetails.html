@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/myorders.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.css" rel="stylesheet">
+    <title>THB-ORDER DETAILS</title>
+    <link rel="shortcut icon"
+        href="https://static.vecteezy.com/system/resources/previews/025/734/855/non_2x/knife-icon-vector.jpg"
+        type="image/x-icon">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar fixed-top">
+        <div class="container-fluid">
+            <div class="cart-icon" data-bs-toggle="modal" data-bs-target="#cartModal">
+                <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+                <span id="cart-count" class="badge bg-danger" style="background-color: red !important;">0</span>
+            </div>
+            <a class="navbar-brand" id="logo" href="../../index.html"><img src="../IMAGES/logo.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title offcanvas-logo" id="offcanvasNavbarLabel"><a href="../../index.html"><img
+                                src="../IMAGES/logo.png" alt=""></a></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../../index.html">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./order.html">ORDER</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                MEAT CATEGORY
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./beef.html">BEEF</a></li>
+                                <li><a class="dropdown-item" href="./mutton.html">MUTTON/LAMB</a></li>
+                                <li><a class="dropdown-item" href="./chicken.html">CHICKEN</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./booking.html">BOOKING</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./butcher.html">BUTCHERS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./about.html">ABOUT US</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./myorders.html">MY ORDERS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./signup.html" id="regbtn">REGISTER</a>
+                        </li>
+                        <div class="nav-item mt-2">
+                            <button class="btn" onclick="darkmode()" id="darkmode-btn"><i
+                                    class="fas fa-moon fa-lg"></i></button>
+                            <button class="btn" onclick="lightmode()" id="lightmode-btn"><i
+                                    class="fas fa-sun fa-lg"></i></button>
+                        </div>
+                    </ul>
+                    <form class="d-flex mt-3" role="search" id="search-form">
+                        <input class="form-control me-2" id="search-input" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <button class="btn btn-danger" style="background-color: red !important; font-weight: 600;"
+                            type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR -->
+
+
+    <!-- ORDER DETAILS HEADING -->
+    <div class="container-fluid mt-5 pt-5">
+        <div class="row">
+            <div class=" col-sm-12 col-md-12 col-lg-12"
+                style="background-image: url(../IMAGES/specialise\ banner.jpg); height: 300px;   object-fit: cover;background-size: cover;background-position: center; filter: brightness(50%);">
+            </div>
+            <h1 class="text-light text-center" style="font-weight: 800; position: relative; top: -140px;">ORDER DETAILS
+            </h1>
+        </div>
+    </div>
+    <!-- ORDER DETAILS HEADING -->
+
+
+    <!-- ORDER DETAILS CONTAINER -->
+    <div class="container myorder mt-5">
+        <div id="order-details"></div>
+    </div>
+    <!-- ORDER DETAILS CONTAINER -->
+
+
+    <!-- CART MODAL -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="cart-items" class="list-group"></ul>
+                    <p class="mt-3"><strong>Total:</strong> $<span id="cart-total">0.00</span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-dark"
+                        style="background-color: red !important; border: none !important;"
+                        id="proceed-to-checkout-btn">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CART MODAL -->
+
+
+    <!-- BILLING ADDRESS MODAL -->
+    <div class="modal fade" id="billingModal" tabindex="-1" aria-labelledby="billingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="billingModalLabel">Billing Address</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="billing-form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact" class="form-label">Contact</label>
+                            <input type="text" class="form-control" id="contact" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">House Address</label>
+                            <input type="text" class="form-control" id="address" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-dark"
+                        style="background-color: red !important; border: none !important;" id="place-order-btn">Place
+                        Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BILLING ADDRESS MODAL -->
+
+
+    <!-- FOOTER -->
+    <footer class="footer-body pt-5 mt-5" style=" border-top: 3px solid red;">
+        <div class="container p-3">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4">
+                    <div class="footer-logo"><a href="../../index.html"><img src="../IMAGES/logo.png" alt=""></a></div>
+                    <br>
+                    <p class="footer-desc">
+                        For over Three decades, The Heritage Butcher has proudly served as a premier online destination
+                        for
+                        top-quality,
+                        hygienic meat. Our unwavering dedication to excellence and customer satisfaction has cultivated
+                        a
+                        loyal clientele who trust us for the finest cuts and exceptional service.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="useful-heading mb-3" style="letter-spacing: 2px; color: rgb(0, 0, 0);">USEFUL LINKS</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-1">
+                            <a href="./about.html" style="text-decoration: none;">Frequently Asked
+                                Questions</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="./about.html" style="text-decoration: none;">Delivery</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="./about.html" style="text-decoration: none;">Quality</a>
+                        </li>
+                        <li>
+                            <a href="./about.html" style="text-decoration: none;">Where we
+                                delivering?</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="timing-heading mb-1" style="letter-spacing: 2px; color: #000000;">TIMING FOR ORDER</h5>
+                    <table class="table" style="border-color: #ff0000;">
+                        <tbody class="tbody">
+                            <tr class="tr">
+                                <td>Sunday - Monday :</td>
+                                <td>8am - 9pm</td>
+                            </tr>
+                            <tr>
+                                <td>Tuesday :</td>
+                                <td>Closed</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday - Saturday :</td>
+                                <td>8am - 9pm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: #ff0000;color: #ffffff !important;">
+            © 2030 Copyright :
+            <a class="text-dark" style="text-decoration: none; color: white !important;"
+                href="../../index.html">TheHeritageButcher.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- FOOTER -->
+
+    <!-- UPDATING NAVBAR REG BUTTON -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var regBtn = document.getElementById("regbtn");
+
+            if (regBtn) {
+                if (sessionStorage.getItem("user") === "true") {
+                    regBtn.textContent = "LOGOUT";
+                    regBtn.removeAttribute("href"); // Remove any href to prevent default navigation
+                    regBtn.addEventListener("click", function () {
+                        sessionStorage.removeItem("user");
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Logged out successfully',
+                            showConfirmButton: false,
+                            timer: 2000
+                        }).then(() => {
+                            window.location.href = '../../index.html';
+                        });
+                    });
+                } else {
+                    regBtn.textContent = "REGISTER";
+                    regBtn.setAttribute("href", "./signup.html");
+                    // No need to add another event listener here as the href will handle the redirect
+                }
+            }
+        });
+
+    </script>
+    <!-- UPDATING NAVBAR REG BUTTON -->
+
+    <!-- SEARCH JS -->
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            const query = document.getElementById('search-input').value.trim().toLowerCase();
+
+            if (query) {
+                // List of your website's pages
+                const pages = {
+                    'home': '../../index.html',
+                    'order': './order.html',
+                    'beef': './beef.html',
+                    'mutton': './mutton.html',
+                    'chicken': './chicken.html',
+                    'booking': './booking.html',
+                    'butcher': './butcher.html',
+                    'about': './about.html',
+                    'myorders': './myorders.html',
+                    // Add more pages here
+                };
+
+                const pageUrl = pages[query];
+                if (pageUrl) {
+                    window.location.href = pageUrl;
+                } else {
+                    alert('Page not found.');
+                }
+            }
+        });
+    </script>
+    <!-- SEARCH JS -->
+
+
+    <!-- ORDERDETAILS JS -->
+    <script>
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const orderDetailsContainer = document.getElementById('order-details');
+
+            // Get the selected order ID from localStorage
+            const selectedOrderId = localStorage.getItem('selectedOrderId');
+            const selectedOrder = orders.find(order => order.id == selectedOrderId);
+
+            if (selectedOrder) {
+                // Calculate total price of the order considering quantity
+                const totalPrice = selectedOrder.products.reduce((total, product) => total + (parseFloat(product.price) * product.quantity), 0).toFixed(2);
+
+                orderDetailsContainer.innerHTML = `
+        <div class="order-details m-3 p-3 text-center fw-bolder">
+            <h4>Order ID: ${selectedOrder.id}</h4>
+            <p><strong>Date:</strong> ${selectedOrder.date}</p>
+            <p><strong>Name:</strong> ${selectedOrder.name}</p>
+            <p><strong>Email:</strong> ${selectedOrder.email}</p>
+            <p><strong>Contact:</strong> ${selectedOrder.contact}</p>
+            <p><strong>Address:</strong> ${selectedOrder.address}</p>
+
+            <h5 style="text-decoration: underline;">Ordered Products</h5>
+            <ul class="list-group mb-3">
+              ${selectedOrder.products.map(product => `
+                <div class="fw-bolder">
+                  ${product.name} - $${product.price} - Qty: ${product.quantity} = $${(product.price * product.quantity).toFixed(2)}
+                </div>
+              `).join('')}
+            </ul>
+
+            <p><strong>Total Price:</strong> $${totalPrice}</p>
+
+            <!-- Delete Order Button -->
+            <button class="delete-order-btn btn" data-order-id="${selectedOrder.id}">Cancel Order</button>
+        </div>
+        `;
+
+                // Add event listener for the delete button
+                document.querySelector('.delete-order-btn').addEventListener('click', (e) => {
+                    const orderId = e.target.getAttribute('data-order-id');
+
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: 'Do you really want to delete this order?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: 'red',
+                        cancelButtonColor: '#000000',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Remove the selected order from localStorage
+                            const updatedOrders = orders.filter(order => order.id != orderId);
+                            localStorage.setItem('orders', JSON.stringify(updatedOrders));
+
+                            // Redirect to the orders page or refresh the current page to reflect changes
+                            Swal.fire(
+                                'Deleted!',
+                                'Your order has been deleted.',
+                                'success'
+                            ).then(() => {
+                                window.location.href = 'orderdetails.html'; // Replace with your orders page URL
+                            });
+                        }
+                    });
+                });
+            } else {
+                orderDetailsContainer.innerHTML = `<h5>No order details found.</h5>`;
+            }
+        });
+
+    </script>
+    <!-- ORDERDETAILS JS -->
+
+
+    <!-- JQUERY CDN -->
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- JQUERY CDN -->
+
+
+    <!-- SCROLLUP JS -->
+    <script src="../js/jquery.scrollUp.min.js"></script>
+    <script>
+        $(function () {
+            $.scrollUp({
+                scrollImg: true,
+            });
+        });
+    </script>
+    <!-- SCROLLUP JS -->
+
+
+    <!-- DARK/LIGHT MODE JS -->
+    <script src="../js/darklightmode.js"></script>
+    <!-- DARK/LIGHT MODE JS -->
+
+
+    <!-- SWEETALERT JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- SWEETALERT JS CDN -->
+
+
+    <!-- BOOTSTRAP JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- BOOTSTRAP JS CDN -->
+
+
+    <!-- CART JS -->
+    <script src="../js/cart.js"></script>
+    <!-- CART JS -->
+
+
+    <!-- SCROLLUP JS -->
+    <script src="../js/jquery.scrollUp.min.js"></script>
+    <script>
+        $(function () {
+            $.scrollUp({
+                scrollImg: true,
+            });
+        });
+    </script>
+    <!-- SCROLLUP JS -->
+
+
+    <!-- DARK/LIGHT MODE JS -->
+    <script src="../js/darklightmode.js"></script>
+    <!-- DARK/LIGHT MODE JS -->
+
+</body>
+</html>
